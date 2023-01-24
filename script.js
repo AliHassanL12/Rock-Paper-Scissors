@@ -1,6 +1,10 @@
-function getComputerChoice() {
-    let computerChoice = ['rock', 'paper', 'scissors'];
-    var randomComputerChoice = Math.floor(Math.random()*computerChoice.lenght);
-}
+const textArray = [
+    'rock',
+    'paper',
+    'scissors'
+]
 
-console.log(getComputerChoice())
+var randomIndex = Math.floor(Math.random() * textArray.length);
+var randomElement = textArray[randomIndex];
+
+console.log(randomElement)
