@@ -10,32 +10,47 @@ function getComputerChoice(){
     return randomElement;
 }
 
-function playRound(playerSelection, computerSelection){
-    if (playerSelection === "rock" && computerSelection === 'scissors') {
+function playRound(actualPlayerSelection, computerSelection){
+    if (actualPlayerSelection === "rock" && computerSelection === 'scissors') {
         console.log("Player wins! Rock beats scissors! ");
+        player++;
     }
-    if (playerSelection == 'paper' && computerSelection == 'rock'){
+    if (actualPlayerSelection == 'paper' && computerSelection == 'rock'){
         console.log("Player wins! Paper beats rock!");
+        player++;
     }
-    if (playerSelection == 'scissors' && computerSelection == 'paper'){
+    if (actualPlayerSelection == 'scissors' && computerSelection == 'paper'){
         console.log("Player wins! Scissors beats paper!");
+        player++;
     }
-    if (computerSelection === "rock" && playerSelection === 'scissors') {
+    if (computerSelection === "rock" && actualPlayerSelection === 'scissors') {
         console.log("Computer wins! Rock beats scissors! ");
+        computer++;
     }
-    if (computerSelection == 'paper' && playerSelection == 'rock'){
+    if (computerSelection == 'paper' && actualPlayerSelection == 'rock'){
         console.log("computer wins! Paper beats rock!");
+        computer++;
     }
-    if (computerSelection == 'scissors' && playerSelection == 'paper'){
+    if (computerSelection == 'scissors' && actualPlayerSelection == 'paper'){
         console.log("computer wins! Scissors beats paper!");
+        computer++;
     }
-    if (playerSelection == computerSelection){
+    if (actualPlayerSelection == computerSelection){
         console.log("I'm afraid it's a draw");
+        computer++;
     }
-    console.log(computerSelection);
-    console.log(playerSelection);
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-playRound(playerSelection,computerSelection);
+function game(){
+    for (let i=0; i < 8; i++){
+        let playerSelection = prompt("What will you choose, rock, paper or scissors?");
+        let actualPlayerSelection = playerSelection.toLowerCase()
+        let computerSelection = getComputerChoice();
+        playRound(actualPlayerSelection, computerSelection);
+        console.log("Player has", player, " points and computer has ", computer, "points")
+        i++; 
+    }
+}
+player = 0
+computer = 0
+game()
